@@ -1,3 +1,4 @@
+.language-section,
 .skills-section,
 .general-container {
   position: relative;
@@ -12,7 +13,6 @@
 }
 
 .expandable-title {
-  /* background-color: rgb(224, 209, 209); */
   flex-direction: row;
   display: flex;
   justify-content: space-between;
@@ -54,7 +54,6 @@
 
 .label-bottom {
   width: calc(200% + 0.5rem);
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
@@ -93,7 +92,6 @@
   justify-content: center;  
   padding: 8px 8px;
   background: rgb(120, 120, 255);
-  /* color: white; */
   cursor: pointer;
   border-radius: 4px;
   height: 2rem;
@@ -170,14 +168,13 @@
 .date-label {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   gap: 0.5rem;
 }
 
 .label-seperator input[type="date"] {
   width: 48%;
 }
-
+.language-delete-btn,
 .delete-entry-btn {
   position: absolute;
   right: -2.5rem;
@@ -187,55 +184,23 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* border: 1px solid brown; */
   height: 2rem;
   width: 2rem;
-  /* padding-left: 1rem; */
 }
+
 
 .delete-entry-btn svg{
 transition: color 0.3s ease, width 0.3s ease, height 0.3s ease;
 } 
 
+
 .delete-entry-btn svg:hover {
   height: 2rem;
   width: 2rem;
   fill: red;
-  stroke: red;  /* border: 1px solid brown; */
+  stroke: red;  
 }
 
-.section-preview {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  height: fit-content;
-  /* border: 1px solid red; */
-}
-
-.section-needle {
-  width: 1px;
-  background-color: black;
-  position: relative;
-}
-
-.section-needle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: white;
-}
-
-.section-data {
-  padding-left: 1rem;
-  flex: 1;
-  margin-bottom: 2rem;
-}
 
 .skill-fields {
   display: flex;
@@ -248,3 +213,137 @@ transition: color 0.3s ease, width 0.3s ease, height 0.3s ease;
     background-color: white;
   }
 }
+
+.language-fields {
+  position: relative;
+}
+
+.language-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.language-fields input {
+  background-color: white;
+  width: 100%;
+}
+
+.language-delete-btn {
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: -25px;
+  margin-left: 8rem;
+}
+
+.language-delete-btn svg {
+  transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.language-delete-btn svg:hover {
+  stroke: red;
+  fill: red;
+}
+
+
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .language-delete-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: -25px;
+    margin-left: 11rem; 
+  } 
+}
+
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+  
+  .body-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+}
+  
+  
+  .form-panel,
+  .preview-panel {
+    min-width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+ 
+ .general-container {
+    max-width: 90%;
+  }
+
+  .language-container,
+  .skills-container{
+    width: 90%;
+  }
+
+  .skills-section {
+    max-width: 100%;
+  }
+
+  .skill-fields {
+    max-width: 100%;
+    justify-content: flex-start;
+    font-size: 5px;
+
+    input{
+      max-width: 48%;
+      font-size: 1rem;
+    }
+  }
+
+  input{
+    font-size: 1rem;
+  }
+
+  textarea{
+    font-size: 1rem;
+  }
+
+  .delete-btn,  
+  .save-btn,
+  .edit-btn {
+    font-size: 1rem;
+  }
+
+  .add-btn {
+    width: 90%;
+  }
+
+  .language-delete-btn {
+    position: absolute;
+    right: 0.8rem;
+    top: 3rem;
+  }
+}
+  
+

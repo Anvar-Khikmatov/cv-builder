@@ -4,74 +4,18 @@ import General from "./components/General.jsx";
 import Work from "./components/Work.jsx";
 import School from "./components/Education.jsx";
 import Skills from "./components/Skills.jsx";
+import Language from "./components/Language.jsx";
 import Preview from "./components/Preview.jsx";
 import { GiSkills } from "react-icons/gi";
+import { GrLanguage } from "react-icons/gr";
+import { initialUser, initialWorkEntries, initialSchoolEntries, initialSkills, initialLangauges } from './data.js'
 
 export default function App() {
-  const [user, setUser] = useState({
-    name: "McLovin",
-    surname: "Fogell",
-    email: "mclovin@hawaii.gov",
-    phone: "(555) 555-1783",
-    address: "Hawaii, HI",
-    occupation: "Liquor Procurement Specialist",
-    about: "Highly motivated and results-oriented procurement specialist with 1 year of experience in age-restricted retail environments. Proven ability to operate under pressure and maintain composure during law enforcement interactions.",
-    avatar: "",
-  });
-
-  const [workEntries, setWorkEntries] = useState([
-    {
-      id: crypto.randomUUID(),
-      role: "Liquor Procurement Specialist",
-      company: "Fogell Independent Services",
-      from: "2007-06",
-      to: "Present",
-      address: "Los Angeles, CA",
-      description: "Designed and executed procurement strategies for age-restricted products. Demonstrated exceptional crisis management skills during high pressure civilian and law enforcement encounters.",
-    },
-    {
-      id: crypto.randomUUID(),
-      role: "Underage ID Consultant",
-      company: "Self Employed",
-      from: "2006-09",
-      to: "2007-06",
-      address: "San Diego, CA",
-      description: "Provided strategic identity consulting for minors navigating restricted access environments. Maintained a 100% memorable client satisfaction rate.",
-   },
-  ]);
-
-  const [schoolEntries, setSchoolEntries] = useState([{
-    id: crypto.randomUUID(),
-    school: "Abraham Lincoln High School",
-    degree: "High School Diploma",
-    from: "2004-09",
-    to: "2007-06",
-    address: "Los Angeles, CA",
-    description: "Successfully completed core curriculum while managing an extensive social portfolio. Recognized for a landmark contribution to peer reputation management during senior year."
-  }]);    
-
-  const [skills, setSkills] = useState([
-    {
-      id: crypto.randomUUID(),
-      category: "Programming Languages",
-      skill: "Fake ID Forgery, Persuasion Scripting"
-    },
-    {
-      id: crypto.randomUUID(),
-      category: "Cloud Services",
-      skill: "Hawaii DMV Database"
-    },
-    {
-      id: crypto.randomUUID(),
-      category: "Web Technologies",
-      skill: "MySpace, AskJeeves"
-    },
-    {
-      id: crypto.randomUUID(),
-      category: "Databases",
-      skill: "Local Liquor Store Inventory"
-    },
-  ]);
+  const [user, setUser] = useState(initialUser);
+  const [workEntries, setWorkEntries] = useState(initialWorkEntries);
+  const [schoolEntries, setSchoolEntries] = useState(initialSchoolEntries);    
+  const [skills, setSkills] = useState(initialSkills);
+  const [languages, setLanguages] = useState(initialLangauges);
 
   const createWorkSection = () => {
     setWorkEntries([
@@ -138,10 +82,26 @@ export default function App() {
     setSkills(skills.filter(s => s.id !== id))
   }
 
+  const createLanguage = () => {
+    setLanguages([...languages, {id: crypto.randomUUID(), lang: ""}])
+  }
+
+  const  updateLanguage = (id, updatedData) => {
+    setLanguages(languages.map(lan => 
+      lan.id === id ? {...lan, ...updatedData} : lan
+    ))
+  }
+
+  const deleteLanguage = (id) => {
+    setLanguages(languages.filter(lan => lan.id !== id))
+  }
+
+
+
+
   return (
     <div className="body-wrapper">
       <div className="form-panel">
-
         <General user={user} setUser={setUser} />
 
         {workEntries.map((entry) => (
@@ -168,7 +128,6 @@ export default function App() {
           <div className="skills-section">
             <h2> <GiSkills /> Skills</h2> 
           </div>
-
           {skills.map((s) => (
             <Skills
             key={s.id}
@@ -179,9 +138,27 @@ export default function App() {
           ))}
         </div>
         <button className="add-btn" onClick={createSkills}> + Add Skills </button>
+
+        <div className="language-container">
+          <div className="language-section">
+            <h2> <GrLanguage /> Languages</h2> 
+          </div>
+          <div className="language-wrapper">
+            {languages.map((lan) => (
+              <Language
+              key={lan.id}
+              lang={lan}
+              onUpdate={updateLanguage}
+              onDelete={deleteLanguage}
+              />
+            ))}
+          </div>
+        </div>
+        <button className="add-btn" onClick={createLanguage}> + Add Language </button>
       </div>
+      
       <div className="preview-panel">
-        <Preview user={user} work={workEntries} school={schoolEntries} skills={skills} />
+        <Preview user={user} work={workEntries} school={schoolEntries} skills={skills} language={languages} />
       </div>
     </div>
   );

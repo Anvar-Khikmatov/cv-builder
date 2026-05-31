@@ -46,7 +46,7 @@ export default function Work({ entry, onUpdate, onDelete }) {
     if (dateStr.toLowerCase() === "present") return dateStr
     const [year, month] = dateStr.split("-")
     const date = new Date(year, month - 1)
-    return date.toLocaleString("en-US", { month: "long", year: "numeric" })
+    return date.toLocaleString("en-US", { month: "2-digit", year: "numeric" })
   }
 
   return (
@@ -169,7 +169,7 @@ export default function Work({ entry, onUpdate, onDelete }) {
             <div className="save-btn-work">
               <button
                 className="save-btn"
-                // disabled={!inputData.name || !inputData.surname}
+                disabled={!inputData.role || !inputData.company}
                 onClick={handleSave}
               >
                 Save

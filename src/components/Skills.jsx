@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { CiCircleRemove } from "react-icons/ci";
-import { MdUpdateDisabled } from 'react-icons/md';
+// import { MdUpdateDisabled } from 'react-icons/md';
 
 
 export default function Skills({skill, onUpdate, onDelete}) {

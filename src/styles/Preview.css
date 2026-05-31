@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  --second-above-padding-top: 2rem;
+  --body-text-color: rgba(44, 44, 44, 0.856);
+  --seconddary-color: #323b4c;
+  --third-color: rgba(57, 55, 55, 0.856);
+}
+
+.preview-container {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+
+.preview-contact-section {
+  width: 30%;
+  min-height: 100%;
+  background-color: var(--seconddary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-box {
+  width: 100%;
+  height: 14.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #546178;
+  margin-top: 1rem;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.contact-box-below {
+  margin-left: 2.5rem;
+  padding-top: var(--second-above-padding-top);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.language-text,
+.contact-text {
+  font-size: 1.5rem;
+}
+
+.language-text{
+  margin-top: 1rem;
+}
+
+.employment-divider,
+.contact-divider{
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  margin: 0.5rem 0;
+}
+
+.contact-data-seperator {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  gap: 0.2rem;
+}
+
+.lang-data-seperator {
+  margin: 0.3rem 0;
+}
+
+.contact-data-label {
+  font-weight: 700;
+}
+
+.lang-actual-data,
+.contact-actual-data {
+  font-size: 0.8rem;
+}
+
+
+
+.preview-main-section {
+  flex: 1;
+  padding: 2rem;
+}
+
+.name-box {
+  width: 100%;
+  height: 9.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.full-name {
+  display: flex;
+  gap: 1rem;
+}
+
+.name {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 2.3rem;
+  color: var(--seconddary-color);
+}
+
+.surname{
+  font-weight: 350;
+  letter-spacing: 2px;
+  font-size: 2.3rem;
+  color: var(--seconddary-color);
+}
+
+.occupation {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: var(--seconddary-color);
+}
+
+.about {
+  font-size: 0.8rem;
+  color: var(--body-text-color);
+  line-height: 1.1rem;
+}
+
+.employment-section{
+  padding-top: 2.5rem;
+}
+
+.employment-text {
+  font-size: 1.5rem;
+  color: var(--seconddary-color);
+}
+
+.employment-divider {
+  background-color: var(--seconddary-color);
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+
+.section-preview {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: fit-content;
+}
+
+.section-needle {
+  width: 1px;
+  background-color: black;
+  position: relative;
+}
+
+.section-needle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.section-data {
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ocu-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--third-color);
+}
+
+.preview-role {
+  font-weight: 700;
+}
+
+.preview-date {
+  font-weight: 650;
+  font-size: 0.8rem;
+}
+
+.preview-company {
+  color: var(--seconddary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.preview-description {
+  color: var(--body-text-color);
+  font-size: 0.8rem;
+}
+
+.skills-wrapper {
+  padding-left: 1rem;
+}
+
+.skills-text {
+  font-weight: 700;
+  color: var(--third-color);
+  margin-bottom: 0.5rem;
+}
+
+.preview-skills-container {
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-columns:  repeat(2, 1fr);
+  border-bottom: 1px solid rgba(158, 155, 155, 0.663);
+  padding: 0.2rem 0;
+}
+
+.preview-category {
+  font-weight: 650;
+  margin-right: 1rem;
+  color: var(--third-color);
+}
+
+.preview-skill {
+  color: var(--body-text-color)
+}
+
+.section-data-school {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.download-btn {
+  all: unset;
+  width: 100%;
+  min-height: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgb(120, 120, 255);
+  color: white;
+  border: 1px solid rgb(79, 79, 255);;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+
+  .img-container {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    background-color: #546178;
+    margin-top: 1rem;
+}
+}
+

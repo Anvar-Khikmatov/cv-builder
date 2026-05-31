@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/Form.css'
+import '../App.css'
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import { MdEditNote } from "react-icons/md";
@@ -99,7 +100,7 @@ export default function General({user, setUser}) {
             <input type="file" className='img-upload' id='avatar' accept="image/*" onChange={handleImageUpload} />
 
             <button className='save-btn'
-              disabled={!inputData.name || !inputData.surname}
+              disabled={!inputData.name || !inputData.surname || !inputData.email || !inputData.phone}
               onClick={handleSave}>
               Save
             </button>
@@ -118,6 +119,6 @@ export default function General({user, setUser}) {
           {isEdit && <button className='delete-btn' onClick={handleDelete}>Delete</button>}
         </div>}
 
-    </div> // general container
+    </div> 
   )
 }

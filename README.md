@@ -1,16 +1,64 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive CV builder built with React. Fill in your details on the left, see your CV update in real time on the right, and download it as a PDF.
 
-Currently, two official plugins are available:
+[Live Demo]( https://anvar-khikmatov.github.io/cv-builder/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Real time preview as you type
+- Add and remove multiple employment and education entries
+- Skills section with category and skill pairs
+- Languages section
+- Profile picture upload
+- PDF download via html2pdf.js
+- Responsive layout for mobile and desktop
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- html2pdf.js
+- React Icons
+- CSS
+
+## Getting Started
+
+```bash
+git clone https://github.com/Anvar-Khikmatov/cv-builder.git
+cd cv-builder
+npm install
+npm run dev
+```
+
+## Project Structure
+
+```
+src/
+  components/
+    General.jsx       # Personal info form
+    Work.jsx          # Employment entry form
+    Education.jsx     # Education entry form
+    Skills.jsx        # Skills entry form
+    Language.jsx      # Language entry form
+    Preview.jsx       # Live CV preview and PDF download
+  styles/
+    Form.css
+    Preview.css
+  App.jsx             # State management and layout
+  App.css             # Global styles
+  data.js             # Initial placeholder data
+```
+
+## State Management
+
+All state lives in App.jsx and flows down to components as props. Each section (work, education, skills, languages) is an array of objects keyed by crypto.randomUUID(). Child components receive specific update and delete callbacks instead of direct state setters.
+
+## PDF Export
+
+Uses html2pdf.js to capture the preview-container DOM element and save it as an A4 PDF. No backend required.
+
+## Assignment
+
+Built as part of [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application) React curriculum.
