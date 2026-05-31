@@ -9,6 +9,29 @@
   --third-color: rgba(57, 55, 55, 0.856);
 }
 
+.save-prev{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-btn {
+  all: unset;
+  width: 99.5%;
+  min-height: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgb(120, 120, 255);
+  color: white;
+  border: 1px solid rgb(79, 79, 255);
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 1px 5px rgb(92, 114, 235);
+}
+
 .preview-container {
   height: fit-content;
   width: 100%;
@@ -252,19 +275,7 @@
 }
 
 
-.download-btn {
-  all: unset;
-  width: 100%;
-  min-height: 2rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: rgb(120, 120, 255);
-  color: white;
-  border: 1px solid rgb(79, 79, 255);;
-}
+
 
 
 
